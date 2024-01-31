@@ -1,25 +1,10 @@
 import { StyleSheet, StatusBar } from "react-native";
 
-const backgroundColor = "#212D40";
-const whiteColor = "#F9F9F9";
-
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: backgroundColor,
+        backgroundColor: "#ccc",
         flex: 1,
         paddingTop: StatusBar.currentHeight || 0,
-        alignItems: "center",
-    },
-
-    appTitle: {
-        fontSize: 24,
-        color: whiteColor,
-        fontWeight: "bold",
-        marginTop: 20,
-    },
-
-    textColor: {
-        color: whiteColor,
     },
 
     searchBarContainer: {
@@ -46,7 +31,7 @@ export const styles = StyleSheet.create({
         width: "85%",
         borderWidth: 1,
         borderRadius: 8,
-        backgroundColor: whiteColor,
+        backgroundColor: "#f9f9f9",
         padding: 10,
     },
 });
