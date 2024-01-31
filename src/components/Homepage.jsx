@@ -1,6 +1,6 @@
-import { View, Text, TextInput, Pressable } from "react-native";
+import { View, Text } from "react-native";
 import { styles } from "../css/Styles.js";
-import SearchBar from "./ui/SearchBar.jsx";
+import SearchBar from "./ui/SearchBar";
 
 const Homepage = () => {
     return (

@@ -1,6 +1,6 @@
 import { View } from "react-native";
-import Homepage from "./components/Homepage";
-import { styles } from "./css/Styles";
+import Homepage from "./src/components/Homepage";
+import { styles } from "./src/css/Styles.js";
 
 export default function App() {
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, TextInput, Text, Pressable, FlatList } from "react-native";
 import { styles } from "../../css/Styles.js";
-import ProductsList from "../ProductsList.jsx";
+import ProductsList from "../ProductsList";
 
 const SearchBar = () => {
     const [inputText, setInputText] = useState("");
