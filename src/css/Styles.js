@@ -25,6 +25,49 @@ export const styles = StyleSheet.create({
         color: whiteColor,
     },
 
+    productsListContainer: {
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 20,
+    },
+
+    productsTitle: {
+        fontSize: 20,
+        color: whiteColor,
+        fontWeight: "bold",
+    },
+
+    productItemContainer: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+    },
+
+    noProducts: {
+        backgroundColor: pinkColor,
+        color: whiteColor,
+        minWidth: "50%",
+        textAlign: "center",
+        padding: 10,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+    },
+
+    productItem: {
+        backgroundColor: secondaryBlue,
+        color: whiteColor,
+        textAlign: "center",
+        minWidth: "50%",
+        padding: 10,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+    },
+
     searchBarContainer: {
         flexDirection: "row",
         justifyContent: "space-around",
@@ -51,5 +94,9 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: whiteColor,
         padding: 10,
+    },
+
+    trashIcon: {
+        color: pinkColor,
     },
 });
