@@ -13,7 +13,9 @@ const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, selectedI
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                     <AlertIcon style={styles.alertIcon} />
-                    <Text style={styles.modalText}>¿Deseas eliminar este producto?</Text>
+                    <Text style={styles.modalText}>
+                        ¿Estás seguyro que deseas eliminar el producto {selectedItem}?
+                    </Text>
                     <View style={styles.buttonsContainer}>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
@@ -23,7 +25,7 @@ const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, selectedI
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => handleRemoveItem(selectedItem)}>
-                            <Text style={styles.textStyle}>Eliminar</Text>
+                            <Text style={styles.textStyle}>Sí, Eliminar</Text>
                         </Pressable>
                     </View>
                 </View>
