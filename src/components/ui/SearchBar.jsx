@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { View, TextInput, Text, Pressable } from "react-native";
 import { styles } from "../../css/Styles.js";
 import ProductsList from "../ProductsList";
+import ModalComponent from "./ModalComponent";
 
 const SearchBar = () => {
     const [addProduct, setAddProduct] = useState("");
     const [products, setProducts] = useState([]);
+    const [visibleModal, setVisibleModal] = useState(false);
 
     const handleTextInput = (text) => {
         setAddProduct(text);
@@ -17,8 +19,13 @@ const SearchBar = () => {
     };
 
     const handleRemoveItem = (item) => {
-        const filteredProduxcts = products.filter((product) => product !== item);
-        setProducts(filteredProduxcts);
+        const filteredProducts = products.filter((product) => product !== item);
+        setProducts(filteredProducts);
+        setVisibleModal(false);
+    };
+
+    const handleModal = () => {
+        setVisibleModal(!visibleModal);
     };
 
     return (
@@ -35,7 +42,14 @@ const SearchBar = () => {
                     </Text>
                 </Pressable>
             </View>
-            <ProductsList products={products} handleRemoveItem={handleRemoveItem} />
+            <ProductsList products={products} handleModal={handleModal} />
+            {visibleModal ? (
+                <ModalComponent
+                    visibleModal={visibleModal}
+                    handleRemoveItem={handleRemoveItem}
+                    handleModal={handleModal}
+                />
+            ) : null}
         </>
     );
 };

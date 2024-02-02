@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, FlatList, Pressable, Image } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import { styles } from "../css/Styles.js";
 
 import TrashIcon from "../components/ui/RemoveIcon";
 
 const uniqueKey = () => Date.now() * Math.random();
 
-const ProductsList = ({ products, handleRemoveItem }) => {
+const ProductsList = ({ products, handleModal }) => {
     return (
         <View style={styles.productsListContainer}>
             <Text style={styles.productsTitle}>Lista de productos</Text>
@@ -17,7 +17,7 @@ const ProductsList = ({ products, handleRemoveItem }) => {
                         <>
                             <View style={styles.productItemContainer}>
                                 <Text style={styles.productItem}>{item}</Text>
-                                <Pressable onPress={() => handleRemoveItem(item)}>
+                                <Pressable onPress={handleModal}>
                                     <TrashIcon style={styles.trashIcon} />
                                 </Pressable>
                             </View>
