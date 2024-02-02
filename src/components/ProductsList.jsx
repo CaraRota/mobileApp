@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, FlatList, Pressable } from "react-native";
-import { styles } from "../css/Styles.js";
+import { View, Text, FlatList, Pressable, StyleSheet } from "react-native";
+import ModalComponent from "./ui/searchbar/ModalComponent.jsx";
+import TrashIcon from "./ui/icons/RemoveIcon.jsx";
 
-import ModalComponent from "./ui/ModalComponent";
-
-import TrashIcon from "../components/ui/RemoveIcon";
-
-const uniqueKey = () => Date.now() * Math.random();
+import { colors } from "../styles/globals.js";
 
 const ProductsList = ({ products, setProducts, handleModal, setVisibleModal, visibleModal }) => {
     const [selectedItem, setSelectedItem] = useState("");
+
+    const uniqueKey = () => Date.now() * Math.random();
 
     const handleRemoveItem = (item) => {
         const filteredProducts = products.filter((product) => product !== item);
@@ -55,3 +54,50 @@ const ProductsList = ({ products, setProducts, handleModal, setVisibleModal, vis
 };
 
 export default ProductsList;
+
+const styles = StyleSheet.create({
+    productsListContainer: {
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 20,
+    },
+
+    productsTitle: {
+        fontSize: 20,
+        color: colors.whiteColor,
+        fontWeight: "bold",
+    },
+    productItemContainer: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+    },
+
+    noProducts: {
+        backgroundColor: colors.pinkColor,
+        color: colors.whiteColor,
+        minWidth: "50%",
+        textAlign: "center",
+        padding: 10,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+    },
+
+    productItem: {
+        backgroundColor: colors.secondaryBlue,
+        color: colors.whiteColor,
+        textAlign: "center",
+        minWidth: "50%",
+        padding: 10,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+    },
+    trashIcon: {
+        color: colors.pinkColor,
+    },
+});

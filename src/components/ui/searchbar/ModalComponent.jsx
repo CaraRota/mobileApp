@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable, Modal } from "react-native";
+import AlertIcon from "../icons/AlertIcon";
+import { colors } from "../../../styles/globals";
 
 const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, selectedItem }) => {
     return (
@@ -10,6 +12,7 @@ const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, selectedI
             onRequestClose={handleModal}>
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
+                    <AlertIcon style={styles.alertIcon} />
                     <Text style={styles.modalText}>¿Deseas eliminar este producto?</Text>
                     <View style={styles.buttonsContainer}>
                         <Pressable
@@ -36,15 +39,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22,
     },
     modalView: {
         margin: 20,
-        backgroundColor: "white",
+        backgroundColor: colors.whiteColor,
         borderRadius: 20,
         padding: 35,
         alignItems: "center",
-        shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
@@ -53,21 +54,26 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
+    alertIcon: {
+        width: 50,
+        height: 50,
+        color: colors.pinkColor,
+    },
     buttonsContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
         gap: 50,
     },
     button: {
-        borderRadius: 20,
+        borderRadius: 10,
         padding: 10,
         elevation: 2,
     },
     buttonClose: {
-        backgroundColor: "#6883BA",
+        backgroundColor: colors.pinkColor,
     },
     textStyle: {
-        color: "white",
+        color: colors.whiteColor,
         fontWeight: "bold",
         textAlign: "center",
     },

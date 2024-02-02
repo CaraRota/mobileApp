@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
-import { styles } from "../css/Styles.js";
-import SearchBar from "./ui/SearchBar";
+import { View, Text, StyleSheet } from "react-native";
+import SearchBar from "./ui/searchbar/SearchBar.jsx";
 import ProductsList from "./ProductsList.jsx";
+
+import { colors } from "../styles/globals.js";
 
 const Homepage = () => {
     const [products, setProducts] = useState([]);
@@ -32,3 +33,16 @@ const Homepage = () => {
 };
 
 export default Homepage;
+
+const styles = StyleSheet.create({
+    appTitle: {
+        fontSize: 24,
+        color: colors.whiteColor,
+        fontWeight: "bold",
+        marginTop: 20,
+    },
+
+    textColor: {
+        color: colors.whiteColor,
+    },
+});
