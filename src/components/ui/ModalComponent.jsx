@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable, Modal } from "react-native";
 
-const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem }) => {
+const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, item }) => {
     return (
         <Modal
             animationType='slide'
@@ -10,9 +10,7 @@ const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem }) => {
             onRequestClose={handleModal}>
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
-                    <Pressable onPress={handleRemoveItem}>
-                        <Text style={styles.modalText}>¿Deseas eliminar este producto?</Text>
-                    </Pressable>
+                    <Text style={styles.modalText}>¿Deseas eliminar este producto?</Text>
                     <View style={styles.buttonsContainer}>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
@@ -21,7 +19,7 @@ const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem }) => {
                         </Pressable>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
-                            onPress={handleRemoveItem}>
+                            onPress={() => handleRemoveItem(item)}>
                             <Text style={styles.textStyle}>Eliminar</Text>
                         </Pressable>
                     </View>
