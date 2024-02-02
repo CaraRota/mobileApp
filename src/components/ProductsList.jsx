@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, FlatList, Pressable } from "react-native";
 import { styles } from "../css/Styles.js";
 
@@ -9,8 +9,9 @@ import TrashIcon from "../components/ui/RemoveIcon";
 const uniqueKey = () => Date.now() * Math.random();
 
 const ProductsList = ({ products, setProducts, handleModal, setVisibleModal, visibleModal }) => {
+    const [selectedItem, setSelectedItem] = useState("");
+
     const handleRemoveItem = (item) => {
-        console.log("this is the item to remove", item);
         const filteredProducts = products.filter((product) => product !== item);
         setProducts(filteredProducts);
         setVisibleModal(false);
@@ -26,24 +27,28 @@ const ProductsList = ({ products, setProducts, handleModal, setVisibleModal, vis
                         <>
                             <View style={styles.productItemContainer}>
                                 <Text style={styles.productItem}>{item}</Text>
-                                <Pressable onPress={handleModal}>
+                                <Pressable
+                                    onPress={() => {
+                                        setVisibleModal(true);
+                                        setSelectedItem(item);
+                                    }}>
                                     <TrashIcon style={styles.trashIcon} />
                                 </Pressable>
                             </View>
-                            {visibleModal ? (
-                                <ModalComponent
-                                    visibleModal={visibleModal}
-                                    handleRemoveItem={handleRemoveItem}
-                                    handleModal={handleModal}
-                                    item={item}
-                                />
-                            ) : null}
                         </>
                     )}
                     keyExtractor={() => uniqueKey()} //Temporary solution for unique keys
                 />
             ) : (
                 <Text style={styles.noProducts}>No hay productos en tu lista</Text>
+            )}
+            {visibleModal && (
+                <ModalComponent
+                    visibleModal={visibleModal}
+                    handleRemoveItem={handleRemoveItem}
+                    handleModal={handleModal}
+                    selectedItem={selectedItem}
+                />
             )}
         </View>
     );

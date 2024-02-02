@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable, Modal } from "react-native";
 
-const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, item }) => {
+const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, selectedItem }) => {
     return (
         <Modal
             animationType='slide'
@@ -19,7 +19,7 @@ const ModalComponent = ({ handleModal, visibleModal, handleRemoveItem, item }) =
                         </Pressable>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
-                            onPress={() => handleRemoveItem(item)}>
+                            onPress={() => handleRemoveItem(selectedItem)}>
                             <Text style={styles.textStyle}>Eliminar</Text>
                         </Pressable>
                     </View>
