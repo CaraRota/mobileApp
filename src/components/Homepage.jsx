@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
         fontFamily: "HonkRegular",
         fontSize: 24,
         color: colors.whiteColor,
-        fontWeight: "bold",
         marginTop: 20,
     },
     textColor: {
