@@ -37,8 +37,8 @@ const Homepage = () => {
 
     return (
         <>
-            <Text style={styles.appTitle}>eCommerce</Text>
-            <SearchBar products={products} setProducts={setProducts} />
+            <Text style={styles.appTitle}>eCommerce Shop</Text>
+            {/* <SearchBar products={products} setProducts={setProducts} /> */}
             {loading ? (
                 <Text style={styles.textColor}>Loading...</Text>
             ) : (
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: colors.whiteColor,
         marginTop: 20,
+        marginBottom: 20,
     },
     textColor: {
         color: colors.whiteColor,

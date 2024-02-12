@@ -9,17 +9,21 @@ const CategoryItem = ({ item, categoryPressed, setCategoryPressed }) => {
     };
 
     return (
-        <View style={styles.container}>
-            <Pressable onPress={() => handleClick(item)}>
-                <Text>{item}</Text>
-            </Pressable>
-        </View>
+        <Pressable onPress={() => handleClick(item)}>
+            <View style={styles.container}>
+                <Text style={styles.categoriesText}>{item.toUpperCase()}</Text>
+            </View>
+        </Pressable>
     );
 };
 
 export default CategoryItem;
 
 const styles = StyleSheet.create({
+    categoriesText: {
+        fontFamily: "OswaldRegular",
+    },
+
     container: {
         paddingVertical: 10,
         paddingHorizontal: 15,
