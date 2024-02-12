@@ -1,33 +1,71 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, StyleSheet } from "react-native";
 import SearchBar from "./ui/searchbar/SearchBar.jsx";
-import ProductsList from "./ProductsList.jsx";
+import CategoryList from "./categories/CategoryList.jsx";
+import CategoryDetail from "./categories/CategoryDetail.jsx";
 
 import { colors } from "../styles/globals.js";
 
+import axios from "axios";
+
+import { productsUrl } from "../config/jsonUrl.js";
+
 const Homepage = () => {
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [visibleModal, setVisibleModal] = useState(false);
+
+    const [categoryPressed, setCategoryPressed] = useState(false);
 
     const handleModal = () => {
         setVisibleModal(!visibleModal);
     };
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(productsUrl);
+                setProducts(response.data.products);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [products]);
+
     return (
         <>
-            <View>
-                <Text style={styles.appTitle}>Agrega un producto</Text>
-            </View>
-            <SearchBar products={products} setProducts={setProducts} />
-            <ProductsList
+            <Text style={styles.appTitle}>eCommerce Shop</Text>
+            {/* <SearchBar products={products} setProducts={setProducts} /> */}
+            {loading ? (
+                <Text style={styles.textColor}>Loading...</Text>
+            ) : (
+                <>
+                    {categoryPressed ? (
+                        <CategoryDetail
+                            categoryPressed={categoryPressed}
+                            setCategoryPressed={setCategoryPressed}
+                            products={products}
+                        />
+                    ) : (
+                        <CategoryList
+                            products={products}
+                            categoryPressed={categoryPressed}
+                            setCategoryPressed={setCategoryPressed}
+                        />
+                    )}
+                </>
+            )}
+
+            {/* <ProductsList
                 products={products}
                 setProducts={setProducts}
                 handleModal={handleModal}
                 visibleModal={visibleModal}
                 setVisibleModal={setVisibleModal}
-            />
-            <Text style={styles.textColor}>Hola, Coder!</Text>
-            <Text style={styles.textColor}>Esto es una app hecha en React Native</Text>
+            /> */}
         </>
     );
 };
@@ -36,12 +74,12 @@ export default Homepage;
 
 const styles = StyleSheet.create({
     appTitle: {
+        fontFamily: "HonkRegular",
         fontSize: 24,
         color: colors.whiteColor,
-        fontWeight: "bold",
         marginTop: 20,
+        marginBottom: 20,
     },
-
     textColor: {
         color: colors.whiteColor,
     },
