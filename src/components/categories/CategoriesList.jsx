@@ -1,4 +1,4 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable, StyleSheet, Text } from "react-native";
 import React from "react";
 
 const CategoriesList = ({ categories, navigation }) => {

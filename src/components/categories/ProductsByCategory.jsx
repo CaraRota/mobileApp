@@ -16,8 +16,6 @@ const ProductsByCategory = ({ route }) => {
             try {
                 const response = await axios.get(productsUrl);
                 const data = response.data.products;
-
-                // Filter products by category
                 const filteredProducts = data.filter((product) => product.category === category);
 
                 setProductsByCategory(filteredProducts);
@@ -29,7 +27,7 @@ const ProductsByCategory = ({ route }) => {
         };
 
         fetchData();
-    }, [category]); // Add category as a dependency
+    }, [category]);
 
     return loading ? (
         <Text>Cargando...</Text>
