@@ -4,7 +4,6 @@ import { colors } from "./src/styles/globals.js";
 import { fonts } from "./src/global/fonts.js";
 import { useFonts } from "expo-font";
 import Navigator from "./src/navigation/Navigator.jsx";
-import { NavigationContainer } from "@react-navigation/native";
 import { store } from "./src/store/";
 import { Provider } from "react-redux";
 
@@ -23,9 +22,7 @@ export default function App() {
                     animated={true}
                     backgroundColor={colors.backgroundColor}
                 />
-                <NavigationContainer>
-                    <Navigator />
-                </NavigationContainer>
+                <Navigator />
             </View>
         </Provider>
     );

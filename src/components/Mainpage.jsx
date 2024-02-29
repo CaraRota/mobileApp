@@ -10,14 +10,7 @@ const Mainpage = ({ navigation }) => {
         <View style={styles.container}>
             <Text style={styles.title}>{siteTitle}</Text>
             <View>
-                <Pressable>
-                    <Text
-                        onPress={() => {
-                            navigation.navigate("Categories", { siteTitle: siteTitle });
-                        }}>
-                        Ver Categorias
-                    </Text>
-                </Pressable>
+                <Text>Aca iria mi homepage lol</Text>
             </View>
         </View>
     );
