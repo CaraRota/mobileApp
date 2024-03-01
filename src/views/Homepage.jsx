@@ -4,10 +4,10 @@ import Mainpage from "../components/Mainpage";
 
 import { colors } from "../styles/globals";
 
-const Homepage = ({ navigation }) => {
+const Homepage = () => {
     return (
         <View style={styles.container}>
-            <Mainpage navigation={navigation} />
+            <Mainpage />
         </View>
     );
 };

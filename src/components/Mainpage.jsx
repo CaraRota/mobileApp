@@ -1,23 +1,16 @@
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { colors } from "../styles/globals";
 
-const Mainpage = ({ navigation }) => {
+const Mainpage = () => {
     const siteTitle = "eCommerce App";
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{siteTitle}</Text>
             <View>
-                <Pressable>
-                    <Text
-                        onPress={() => {
-                            navigation.navigate("Categories", { siteTitle: siteTitle });
-                        }}>
-                        Ver Categorias
-                    </Text>
-                </Pressable>
+                <Text>Aca iria mi homepage lol</Text>
             </View>
         </View>
     );
