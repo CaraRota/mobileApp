@@ -23,3 +23,6 @@ export const shopSlice = createSlice({
         },
     },
 });
+
+export const { setProducts, setCategories, setCategorySelected, setProductIdSelected } =
+    shopSlice.actions;

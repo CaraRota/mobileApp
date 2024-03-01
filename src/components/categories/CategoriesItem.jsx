@@ -5,9 +5,14 @@ import CategoriesList from "./CategoriesList.jsx";
 import { productsUrl } from "../../config/jsonUrl.js";
 import axios from "axios";
 
-const CategoriesItem = ({ siteTitle, navigation }) => {
-    const [categories, setCategories] = useState([]);
+import { setCategories } from "../../features/shopSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+
+const CategoriesItem = ({ siteTitle }) => {
+    const categories = useSelector((state) => state.shopReducer.categories);
     const [loading, setLoading] = useState(true);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getCategories = [];
@@ -20,7 +25,7 @@ const CategoriesItem = ({ siteTitle, navigation }) => {
                         getCategories.push(product.category);
                     }
                 });
-                setCategories(getCategories);
+                dispatch(setCategories(getCategories));
             } catch (error) {
                 console.log(error);
             } finally {
@@ -35,7 +40,7 @@ const CategoriesItem = ({ siteTitle, navigation }) => {
     ) : (
         <View style={styles.container}>
             <Text style={styles.title}>{siteTitle}</Text>
-            <CategoriesList categories={categories} navigation={navigation} />
+            <CategoriesList categories={categories} />
         </View>
     );
 };

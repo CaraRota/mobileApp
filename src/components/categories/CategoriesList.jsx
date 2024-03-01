@@ -1,13 +1,11 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const CategoriesList = ({ categories, navigation }) => {
+const CategoriesList = ({ categories }) => {
     const renderItem = ({ item }) => (
         <Pressable
             onPress={() => {
-                navigation.navigate("ProductsByCategory", {
-                    category: item,
-                });
+                console.log("Category selected: ", item);
             }}
             style={styles.container}>
             <Text style={styles.text}>{item}</Text>

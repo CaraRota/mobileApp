@@ -1,9 +1,9 @@
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { colors } from "../styles/globals";
 
-const Mainpage = ({ navigation }) => {
+const Mainpage = () => {
     const siteTitle = "eCommerce App";
 
     return (
