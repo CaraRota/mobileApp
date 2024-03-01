@@ -26,7 +26,7 @@ const Navigator = () => {
                     }}
                 />
                 <Tab.Screen
-                    name='Categorias'
+                    name='Categoria'
                     component={CategoriesStack}
                     options={{
                         tabBarIcon: ({ color }) => (

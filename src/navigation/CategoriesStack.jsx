@@ -10,14 +10,14 @@ const Stack = createNativeStackNavigator();
 const CategoriesStack = () => {
     return (
         <Stack.Navigator
-            initialRouteName='Categorias'
+            initialRouteName='Categoria'
             screenOptions={{
                 headerStyle: {
                     backgroundColor: colors.secondaryBlue,
                 },
                 headerTintColor: colors.backgroundColor,
             }}>
-            <Stack.Screen name='Categorias' component={Categories} />
+            <Stack.Screen name='Categoria de productos' component={Categories} />
         </Stack.Navigator>
     );
 };
